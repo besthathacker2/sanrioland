@@ -1,0 +1,848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mom's Little Sanrio World 🎀</title>
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Pacifico&display=swap');
+
+    :root {
+        --pink: #ffb6d9;
+        --hot-pink: #ff72ad;
+        --light-pink: #fff0f7;
+        --blue: #bde8ff;
+        --dark-blue: #65bde9;
+        --cream: #fffaf3;
+        --purple: #d9c7ff;
+        --text: #654d63;
+        --white: rgba(255,255,255,.82);
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: "Fredoka", sans-serif;
+        color: var(--text);
+        background:
+            radial-gradient(circle at 10% 20%, #ffd8eb 0 4%, transparent 5%),
+            radial-gradient(circle at 90% 10%, #d9f4ff 0 5%, transparent 6%),
+            linear-gradient(180deg, #fff7fb, #eefaff 45%, #fff8f0);
+        overflow-x: hidden;
+    }
+
+    /* FLOATING DECORATIONS */
+
+    .decor {
+        position: fixed;
+        pointer-events: none;
+        z-index: 1;
+        animation: float 6s ease-in-out infinite;
+        opacity: .75;
+    }
+
+    .heart1 { top: 18%; left: 4%; font-size: 28px; }
+    .heart2 { top: 45%; right: 5%; font-size: 24px; animation-delay: 1s; }
+    .heart3 { top: 75%; left: 8%; font-size: 20px; animation-delay: 2s; }
+    .star1 { top: 30%; right: 12%; font-size: 25px; animation-delay: .5s; }
+    .star2 { top: 65%; right: 8%; font-size: 18px; animation-delay: 2.5s; }
+
+    @keyframes float {
+        0%,100% { transform: translateY(0) rotate(-5deg); }
+        50% { transform: translateY(-18px) rotate(7deg); }
+    }
+
+    /* NAV */
+
+    nav {
+        position: sticky;
+        top: 12px;
+        z-index: 20;
+        width: min(1100px, calc(100% - 28px));
+        margin: 12px auto 0;
+        padding: 12px 18px;
+        border: 2px solid rgba(255,255,255,.8);
+        border-radius: 999px;
+        background: rgba(255,255,255,.72);
+        backdrop-filter: blur(16px);
+        box-shadow: 0 12px 40px rgba(120, 80, 120, .12);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        font-family: Pacifico, cursive;
+        color: var(--hot-pink);
+        font-size: 1.25rem;
+        white-space: nowrap;
+    }
+
+    nav a {
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        margin-left: 14px;
+        transition: .2s;
+    }
+
+    nav a:hover {
+        color: var(--hot-pink);
+        transform: translateY(-2px);
+    }
+
+    /* HERO */
+
+    .hero {
+        min-height: 90vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 70px 20px;
+        position: relative;
+    }
+
+    .cloud {
+        position: absolute;
+        background: white;
+        border-radius: 999px;
+        opacity: .75;
+        filter: blur(.5px);
+    }
+
+    .cloud.one {
+        width: 180px;
+        height: 55px;
+        top: 15%;
+        left: 4%;
+    }
+
+    .cloud.two {
+        width: 240px;
+        height: 70px;
+        top: 25%;
+        right: 3%;
+    }
+
+    .hero-card {
+        max-width: 850px;
+        padding: 55px 30px;
+        background: rgba(255,255,255,.68);
+        border: 2px solid rgba(255,255,255,.9);
+        border-radius: 45px;
+        box-shadow: 0 25px 80px rgba(130, 80, 130, .14);
+        backdrop-filter: blur(14px);
+        position: relative;
+        z-index: 2;
+    }
+
+    .badge {
+        display: inline-block;
+        background: #fff;
+        padding: 8px 17px;
+        border-radius: 999px;
+        color: var(--hot-pink);
+        font-weight: 700;
+        margin-bottom: 20px;
+        box-shadow: 0 8px 25px rgba(255,100,160,.12);
+    }
+
+    h1 {
+        font-size: clamp(3rem, 9vw, 7rem);
+        line-height: .95;
+        color: var(--hot-pink);
+        text-shadow: 4px 5px 0 #ffd7e9;
+    }
+
+    .hero h2 {
+        font-family: Pacifico, cursive;
+        color: #77c8ee;
+        font-size: clamp(1.5rem, 4vw, 2.5rem);
+        margin: 20px 0;
+    }
+
+    .hero p {
+        max-width: 620px;
+        margin: auto;
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+    .button {
+        display: inline-block;
+        margin-top: 25px;
+        padding: 14px 25px;
+        background: linear-gradient(135deg, #ff8cbe, #ff69aa);
+        color: white;
+        border-radius: 999px;
+        text-decoration: none;
+        font-weight: 700;
+        box-shadow: 0 10px 25px rgba(255,105,170,.3);
+        transition: .25s;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 1rem;
+    }
+
+    .button:hover {
+        transform: translateY(-4px) scale(1.03);
+        box-shadow: 0 15px 30px rgba(255,105,170,.4);
+    }
+
+    /* SECTIONS */
+
+    section {
+        width: min(1100px, calc(100% - 30px));
+        margin: 0 auto;
+        padding: 90px 0;
+    }
+
+    .section-title {
+        text-align: center;
+        font-family: Pacifico, cursive;
+        font-size: clamp(2rem, 6vw, 3.4rem);
+        color: var(--hot-pink);
+        margin-bottom: 12px;
+    }
+
+    .section-subtitle {
+        text-align: center;
+        margin-bottom: 45px;
+        color: #806d7e;
+    }
+
+    /* MOM CARD */
+
+    .mom-card {
+        padding: 45px;
+        border-radius: 40px;
+        background: linear-gradient(135deg, #fff, #fff1f8);
+        border: 2px solid white;
+        box-shadow: 0 20px 60px rgba(100,70,100,.12);
+        text-align: center;
+    }
+
+    .mom-heart {
+        font-size: 70px;
+        animation: heartbeat 1.8s infinite;
+    }
+
+    @keyframes heartbeat {
+        0%,100% { transform: scale(1); }
+        10% { transform: scale(1.12); }
+        20% { transform: scale(1); }
+    }
+
+    .mom-card h3 {
+        color: var(--hot-pink);
+        font-size: 2rem;
+        margin: 12px;
+    }
+
+    .mom-card p {
+        max-width: 700px;
+        margin: auto;
+        line-height: 1.8;
+        font-size: 1.1rem;
+    }
+
+    /* CHARACTER CARDS */
+
+    .characters {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+    }
+
+    .character {
+        border-radius: 35px;
+        padding: 35px 25px;
+        text-align: center;
+        transition: .3s;
+        border: 2px solid rgba(255,255,255,.8);
+        box-shadow: 0 15px 40px rgba(100,80,120,.1);
+    }
+
+    .character:hover {
+        transform: translateY(-10px) rotate(-1deg);
+    }
+
+    .kitty {
+        background: linear-gradient(145deg,#fff,#ffe9f2);
+    }
+
+    .cinna {
+        background: linear-gradient(145deg,#fff,#e6f8ff);
+    }
+
+    .melody {
+        background: linear-gradient(145deg,#fff,#f4eaff);
+    }
+
+    .character-icon {
+        font-size: 75px;
+        margin-bottom: 15px;
+    }
+
+    .character h3 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+
+    .kitty h3 { color: #ef669f; }
+    .cinna h3 { color: #58b8e8; }
+    .melody h3 { color: #bb82e8; }
+
+    .character p {
+        line-height: 1.7;
+    }
+
+    /* STORY */
+
+    .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .timeline::before {
+        content: "";
+        position: absolute;
+        left: 20px;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: linear-gradient(#ff9ac7,#9ddfff,#cdb1ff);
+        border-radius: 10px;
+    }
+
+    .story {
+        position: relative;
+        margin: 25px 0 25px 55px;
+        padding: 25px;
+        background: rgba(255,255,255,.8);
+        border-radius: 25px;
+        box-shadow: 0 10px 30px rgba(100,70,100,.08);
+    }
+
+    .story::before {
+        content: "♡";
+        position: absolute;
+        left: -47px;
+        top: 18px;
+        width: 34px;
+        height: 34px;
+        background: #fff;
+        color: var(--hot-pink);
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        font-weight: bold;
+        box-shadow: 0 5px 15px rgba(0,0,0,.08);
+    }
+
+    .story h3 {
+        color: var(--hot-pink);
+        margin-bottom: 8px;
+    }
+
+    .story p {
+        line-height: 1.7;
+    }
+
+    /* FRIENDSHIP */
+
+    .friendship {
+        padding: 50px 25px;
+        border-radius: 45px;
+        text-align: center;
+        background:
+            radial-gradient(circle at 20% 20%, white 0 3%, transparent 4%),
+            radial-gradient(circle at 80% 60%, white 0 3%, transparent 4%),
+            linear-gradient(135deg,#ffe1ef,#e4f7ff);
+        border: 3px solid white;
+    }
+
+    .friendship h3 {
+        font-size: 2.3rem;
+        color: #ef76ad;
+        margin-bottom: 15px;
+    }
+
+    .friendship p {
+        max-width: 700px;
+        margin: auto;
+        line-height: 1.8;
+    }
+
+    /* SURPRISE */
+
+    .surprise {
+        text-align: center;
+    }
+
+    #message {
+        min-height: 60px;
+        margin-top: 25px;
+        font-family: Pacifico, cursive;
+        font-size: 1.5rem;
+        color: #ee70ad;
+    }
+
+    /* FOOTER */
+
+    footer {
+        text-align: center;
+        padding: 60px 20px;
+        background: rgba(255,255,255,.65);
+        border-top: 2px solid rgba(255,255,255,.9);
+    }
+
+    footer h2 {
+        font-family: Pacifico, cursive;
+        color: var(--hot-pink);
+        margin-bottom: 12px;
+    }
+
+    footer p {
+        line-height: 1.7;
+    }
+
+    .tiny {
+        margin-top: 25px;
+        font-size: .8rem;
+        opacity: .6;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:650px) {
+        nav {
+            justify-content: center;
+        }
+
+        nav .links {
+            display: none;
+        }
+
+        .hero {
+            min-height: 80vh;
+        }
+
+        .hero-card {
+            padding: 40px 20px;
+        }
+
+        .mom-card {
+            padding: 30px 20px;
+        }
+
+        section {
+            padding: 65px 0;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<!-- FLOATING DECORATIONS -->
+<div class="decor heart1">💗</div>
+<div class="decor heart2">💖</div>
+<div class="decor heart3">💕</div>
+<div class="decor star1">✨</div>
+<div class="decor star2">⭐</div>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="logo">🎀 Mom's Sanrio World</div>
+
+    <div class="links">
+        <a href="#mom">Mom</a>
+        <a href="#friends">Friends</a>
+        <a href="#story">Story</a>
+        <a href="#surprise">Surprise</a>
+    </div>
+</nav>
+
+<!-- HERO -->
+
+<header class="hero">
+
+    <div class="cloud one"></div>
+    <div class="cloud two"></div>
+
+    <div class="hero-card">
+
+        <div class="badge">☁️ Welcome to a little world of happiness ☁️</div>
+
+        <h1>Hello!</h1>
+
+        <h2>Welcome to Mom's Little Sanrio World 🎀</h2>
+
+        <p>
+            A tiny corner of the internet filled with friendship,
+            clouds, bows, sparkles, cookies, and an unreasonable
+            amount of cuteness.
+        </p>
+
+        <a href="#mom" class="button">
+            Enter the Cuteness ✨
+        </a>
+
+    </div>
+
+</header>
+
+<!-- MOM -->
+
+<section id="mom">
+
+    <h2 class="section-title">A Little Place for Mom 💗</h2>
+
+    <p class="section-subtitle">
+        Because every Sanrio world needs its favorite person.
+    </p>
+
+    <div class="mom-card">
+
+        <div class="mom-heart">💗</div>
+
+        <h3>Made Especially for Mom</h3>
+
+        <p>
+            Welcome to your very own little corner of the Sanrio universe.
+            Here, the clouds are soft, the hearts are everywhere,
+            and there is always room for one more cup of something cozy.
+        </p>
+
+        <p style="margin-top:18px;">
+            🌸 You make ordinary days brighter. 🌸
+        </p>
+
+    </div>
+
+</section>
+
+<!-- CHARACTERS -->
+
+<section id="friends">
+
+    <h2 class="section-title">The Friends ☁️</h2>
+
+    <p class="section-subtitle">
+        Meet a few of the adorable faces in this little universe.
+    </p>
+
+    <div class="characters">
+
+        <article class="character kitty">
+
+            <div class="character-icon">🎀</div>
+
+            <h3>Hello Kitty</h3>
+
+            <p>
+                Hello Kitty was born in the suburbs of London.
+                She lives with her parents and her twin sister Mimmy,
+                who is also her best friend.
+            </p>
+
+            <p style="margin-top:12px;">
+                She enjoys baking cookies and making new friends.
+            </p>
+
+        </article>
+
+
+        <article class="character cinna">
+
+            <div class="character-icon">☁️</div>
+
+            <h3>Cinnamoroll</h3>
+
+            <p>
+                Cinnamoroll is the official mascot of Café Cinnamon.
+                He is shy but very friendly.
+            </p>
+
+            <p style="margin-top:12px;">
+                And those enormous ears?
+                They let him fly through the air!
+            </p>
+
+        </article>
+
+
+        <article class="character melody">
+
+            <div class="character-icon">🌸</div>
+
+            <h3>More Friends</h3>
+
+            <p>
+                The Sanrio universe is filled with many different
+                characters, each with their own personality,
+                adventures and friendships.
+            </p>
+
+            <p style="margin-top:12px;">
+                There is always another friend waiting around the corner.
+            </p>
+
+        </article>
+
+    </div>
+
+</section>
+
+<!-- STORY -->
+
+<section id="story">
+
+    <h2 class="section-title">The Storybook 📖</h2>
+
+    <p class="section-subtitle">
+        A little timeline of the real character lore.
+    </p>
+
+    <div class="timeline">
+
+        <div class="story">
+
+            <h3>🎀 Hello Kitty's World</h3>
+
+            <p>
+                According to Sanrio's official profile,
+                Hello Kitty was born in the suburbs of London.
+                She lives with her parents and her twin sister Mimmy.
+            </p>
+
+        </div>
+
+
+        <div class="story">
+
+            <h3>🍪 A Love of Cookies</h3>
+
+            <p>
+                Hello Kitty enjoys baking cookies and making new friends.
+                Friendship is one of the central ideas surrounding her character.
+            </p>
+
+        </div>
+
+
+        <div class="story">
+
+            <h3>☁️ Somewhere Above Café Cinnamon...</h3>
+
+            <p>
+                Cinnamoroll is the official mascot of Café Cinnamon.
+                Sanrio describes him as shy but friendly.
+            </p>
+
+        </div>
+
+
+        <div class="story">
+
+            <h3>☁️ The Flying Cinnamoroll</h3>
+
+            <p>
+                Cinnamoroll can fly by flapping his huge ears.
+                He sometimes even takes a nap on customers' laps.
+            </p>
+
+        </div>
+
+
+        <div class="story">
+
+            <h3>💗 And Then There's Mom</h3>
+
+            <p>
+                Somewhere beyond London and above Café Cinnamon,
+                a new little story begins:
+                Mom's very own Sanrio world.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FRIENDSHIP -->
+
+<section>
+
+    <div class="friendship">
+
+        <h3>🌸 The Friendship Garden 🌸</h3>
+
+        <p>
+            Sanrio's characters are built around connection,
+            kindness and friendship.
+            So this garden is for every little moment that makes
+            someone smile.
+        </p>
+
+        <button class="button" onclick="growGarden()">
+            Plant a Friendship Flower 🌷
+        </button>
+
+        <div id="garden"
+             style="font-size:2rem;margin-top:25px;min-height:45px;">
+        </div>
+
+    </div>
+
+</section>
+
+<!-- SURPRISE -->
+
+<section id="surprise" class="surprise">
+
+    <h2 class="section-title">A Tiny Surprise 🎁</h2>
+
+    <p class="section-subtitle">
+        Press the suspiciously adorable button.
+    </p>
+
+    <button class="button" onclick="surprise()">
+        ✨ Open Surprise ✨
+    </button>
+
+    <div id="message"></div>
+
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+
+    <h2>Made with an unreasonable amount of love 💗</h2>
+
+    <p>
+        For Mom — from your tiny corner of the Sanrio universe.
+    </p>
+
+    <p class="tiny">
+        Character information is based on official Sanrio character profiles.
+        This fan-made webpage is not an official Sanrio website.
+    </p>
+
+    <p class="tiny">
+        🎀 ☁️ 💗 🌸 ✨ 🍪 🎀 ☁️ 💗
+    </p>
+
+</footer>
+
+
+<script>
+
+    const flowers = [
+        "🌷",
+        "🌸",
+        "🌺",
+        "🌼",
+        "💐",
+        "🌻",
+        "🪻"
+    ];
+
+    function growGarden() {
+
+        const garden = document.getElementById("garden");
+
+        const flower =
+            flowers[Math.floor(Math.random() * flowers.length)];
+
+        const newFlower = document.createElement("span");
+
+        newFlower.textContent = flower;
+
+        newFlower.style.display = "inline-block";
+        newFlower.style.margin = "5px";
+        newFlower.style.animation = "flowerPop .5s ease";
+
+        garden.appendChild(newFlower);
+    }
+
+
+    const messages = [
+        "Mom is officially 100% certified adorable. 💗",
+        "Cinnamoroll has delivered a cloud directly to Mom. ☁️",
+        "A tiny Hello Kitty has entered the room. 🎀",
+        "✨ You have unlocked MAXIMUM CUTENESS. ✨",
+        "🌸 Mom deserves approximately 700 more flowers. 🌸",
+        "🍪 Someone baked imaginary cookies for Mom!",
+        "💖 Friendship level: LEGENDARY.",
+        "☁️ The Cinnamoroll Weather Service predicts 100% chance of cuddly clouds."
+    ];
+
+
+    function surprise() {
+
+        const message =
+            document.getElementById("message");
+
+        const random =
+            messages[Math.floor(Math.random() * messages.length)];
+
+        message.textContent = random;
+
+        document.body.animate(
+            [
+                { transform: "scale(1)" },
+                { transform: "scale(1.01)" },
+                { transform: "scale(1)" }
+            ],
+            {
+                duration: 450,
+                easing: "ease-out"
+            }
+        );
+    }
+
+
+    const style = document.createElement("style");
+
+    style.textContent = `
+        @keyframes flowerPop {
+            0% {
+                transform: scale(0) rotate(-20deg);
+                opacity: 0;
+            }
+
+            70% {
+                transform: scale(1.2) rotate(10deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1) rotate(0);
+            }
+        }
+    `;
+
+    document.head.appendChild(style);
+
+</script>
+
+</body>
+</html>
